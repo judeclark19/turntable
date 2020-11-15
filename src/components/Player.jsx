@@ -24,6 +24,13 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
   const timeUpdateHandler = (e) => {
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;
+    setSongInfo({ ...songInfo, currentTime: currentTime, duration: duration });
+  };
+
+  const formatTime = (time) => {
+    return (
+      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+    );
   };
 
   //State
@@ -35,9 +42,9 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
   return (
     <div className="player">
       <div className="time-control">
-        <p>current time</p>
+        <p>{formatTime(songInfo.currentTime)}</p>
         <input type="range" />
-        <p>duration</p>
+        <p>{formatTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon className="skip-left" icon={faAngleLeft} size="2x" />
