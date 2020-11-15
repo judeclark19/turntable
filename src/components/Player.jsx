@@ -15,10 +15,11 @@ function Player() {
         <input type="range" />
         <p>duration</p>
       </div>
-      <div className="play-control">icons here</div>
-      <FontAwesomeIcon className="skip-left" icon={faAngleLeft} size="2x" />
-      <FontAwesomeIcon className="play" icon={faPlay} size="2x" />
-      <FontAwesomeIcon className="skip-right" icon={faAngleRight} size="2x" />
+      <div className="play-control">
+        <FontAwesomeIcon className="skip-left" icon={faAngleLeft} size="2x" />
+        <FontAwesomeIcon className="play" icon={faPlay} size="2x" />
+        <FontAwesomeIcon className="skip-right" icon={faAngleRight} size="2x" />
+      </div>
     </div>
   );
 }
