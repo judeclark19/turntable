@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -21,6 +21,17 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
     }
   };
 
+  const timeUpdateHandler = (e) => {
+    const currentTime = e.target.currentTime;
+    const duration = e.target.duration;
+  };
+
+  //State
+  const [songInfo, setSongInfo] = useState({
+    currentTime: null,
+    duration: null,
+  });
+
   return (
     <div className="player">
       <div className="time-control">
@@ -38,7 +49,11 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
         />
         <FontAwesomeIcon className="skip-right" icon={faAngleRight} size="2x" />
       </div>
-      <audio ref={audioRef} src={currentSong.audio} />
+      <audio
+        onTimeUpdate={timeUpdateHandler}
+        ref={audioRef}
+        src={currentSong.audio}
+      />
     </div>
   );
 }
