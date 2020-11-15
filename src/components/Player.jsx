@@ -43,7 +43,12 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
     <div className="player">
       <div className="time-control">
         <p>{formatTime(songInfo.currentTime)}</p>
-        <input type="range" />
+        <input
+          type="range"
+          min={0}
+          max={songInfo.duration}
+          value={songInfo.currentTime}
+        />
         <p>{formatTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
@@ -58,6 +63,7 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
       </div>
       <audio
         onTimeUpdate={timeUpdateHandler}
+        onLoadedMetadata={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
       />
