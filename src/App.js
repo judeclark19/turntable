@@ -1,9 +1,12 @@
 import "./styles/App.scss";
+import Player from "./components/Player";
+import SongDisplay from "./components/SongDisplay";
 
 function App() {
   return (
     <div>
-      <h1>hello world turntable</h1>
+      <SongDisplay />
+      <Player />
     </div>
   );
 }
