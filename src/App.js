@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <SongDisplay currentSong={currentSong} />
-      <Player />
+      <Player currentSong={currentSong} />
     </div>
   );
 }

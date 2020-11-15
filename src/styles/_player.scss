@@ -1,5 +1,5 @@
 .player {
-  background-color: lightpink;
+  //   background-color: lightpink;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
@@ -8,8 +8,8 @@
 }
 
 .time-control {
-  border: 1px dashed black;
-  width: 50%;
+  //   border: 1px dashed black;
+  width: 60%;
   display: flex;
   justify-content: space-between;
 
@@ -24,8 +24,8 @@
 
 .play-control {
   display: flex;
-  border: 1px dashed black;
-  width: 30rem;
+  //   border: 1px dashed black;
+  width: 20rem;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
