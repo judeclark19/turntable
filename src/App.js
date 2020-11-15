@@ -2,6 +2,7 @@ import "./styles/App.scss";
 import { useState } from "react";
 import Player from "./components/Player";
 import SongDisplay from "./components/SongDisplay";
+import Library from "./components/Library";
 import chillHop from "./data";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
       />
+      <Library songs={songs} currentSong={currentSong} />
     </div>
   );
 }
