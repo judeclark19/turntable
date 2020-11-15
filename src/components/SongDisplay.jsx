@@ -1,11 +1,11 @@
 import React from "react";
 
-function SongDisplay() {
+function SongDisplay({ currentSong }) {
   return (
     <div className="song-display">
-      <h1>art</h1>
-      <h1>title</h1>
-      <h1>artist</h1>
+      <img src={currentSong.cover} />
+      <h2>{currentSong.name}</h2>
+      <h3>{currentSong.artist}</h3>
     </div>
   );
 }
