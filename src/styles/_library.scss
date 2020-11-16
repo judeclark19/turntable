@@ -16,7 +16,6 @@
 .library-item {
   cursor: pointer;
   display: flex;
-  //   flex-direction: column;
   align-items: center;
   padding: 0.5rem 1rem 0.5rem 1rem;
   img {
@@ -24,8 +23,14 @@
   }
 
   &:hover {
-    background-color: rgb(228, 227, 255);
+    background-color: rgb(206, 204, 252);
   }
+}
+
+.selected {
+  // background: violet;
+  // background-color: rgb(205, 204, 236);
+  background-color: rgb(228, 227, 255);
 }
 
 .song-info {
@@ -58,8 +63,4 @@
   //   color: black;
   border-radius: 20px;
   border: transparent;
-}
-
-.selected {
-  background: violet;
 }
