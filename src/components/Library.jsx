@@ -1,16 +1,18 @@
 import React from "react";
 import LibraryItem from "./LibraryItem";
 
-function Library({ songs, currentSong, setCurrentSong }) {
+function Library({ audioRef, songs, currentSong, setCurrentSong, isPlaying }) {
   return (
     <div className="library">
       <h2>Library</h2>
       <div className="library-items">
         {songs.map((song) => (
           <LibraryItem
+            audioRef={audioRef}
             song={song}
             songs={songs}
             setCurrentSong={setCurrentSong}
+            isPlaying={isPlaying}
             id={song.id}
             key={song.id}
           />
