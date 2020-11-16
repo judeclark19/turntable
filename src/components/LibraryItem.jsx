@@ -1,12 +1,36 @@
 import React from "react";
 
-function LibraryItem({ audioRef, song, songs, setCurrentSong, id, isPlaying }) {
+function LibraryItem({
+  audioRef,
+  song,
+  songs,
+  setSongs,
+  setCurrentSong,
+  id,
+  isPlaying,
+}) {
   const selectSongHandler = () => {
     // const selectedSong = songs.filter((state) => state.id === id);
     setCurrentSong(song);
+
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+
+    setSongs(newSongs);
+
     //check if song is playing
     if (isPlaying) {
-      //stuff
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
         playPromise.then((audio) => {
