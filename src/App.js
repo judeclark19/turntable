@@ -27,7 +27,7 @@ function App() {
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;
     const animationPercent = (currentTime / duration) * 100;
-    console.log(animationPercent);
+
     setSongInfo({
       ...songInfo,
       currentTime: currentTime,
