@@ -5,6 +5,7 @@ function LibraryItem({
   song,
   songs,
   setSongs,
+  currentSong,
   setCurrentSong,
   id,
   isPlaying,

@@ -35,6 +35,7 @@ function App() {
       <SongDisplay currentSong={currentSong} />
       <Player
         songs={songs}
+        setSongs={setSongs}
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
         isPlaying={isPlaying}

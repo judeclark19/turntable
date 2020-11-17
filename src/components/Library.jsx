@@ -20,6 +20,7 @@ function Library({
             song={song}
             songs={songs}
             setSongs={setSongs}
+            currentSong={currentSong}
             setCurrentSong={setCurrentSong}
             isPlaying={isPlaying}
             id={song.id}
