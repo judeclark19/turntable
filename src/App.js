@@ -22,6 +22,15 @@ function App() {
   });
 
   //functions
+  const songEndHandler = async () => {
+    // console.log("song over");
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+
+    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  };
   //Lifted from Player
   const timeUpdateHandler = (e) => {
     const currentTime = e.target.currentTime;
@@ -66,6 +75,9 @@ function App() {
         onLoadedMetadata={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={() => {
+          songEndHandler();
+        }}
       />
     </div>
   );
