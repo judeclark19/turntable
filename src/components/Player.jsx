@@ -7,7 +7,16 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Player({ isPlaying, setIsPlaying, songInfo, setSongInfo, audioRef }) {
+function Player({
+  songs,
+  currentSong,
+  setCurrentSong,
+  isPlaying,
+  setIsPlaying,
+  songInfo,
+  setSongInfo,
+  audioRef,
+}) {
   //Handlers
   const playSongHandler = () => {
     if (isPlaying) {
@@ -31,6 +40,21 @@ function Player({ isPlaying, setIsPlaying, songInfo, setSongInfo, audioRef }) {
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
+  const skipHandler = (direction) => {
+    // console.log(direction);
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    // console.log(currentIndex);
+    if (direction === "right") {
+      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    }
+    if (direction === "left" && currentIndex > 0) {
+      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+    }
+    if (direction === "left" && currentIndex === 0) {
+      setCurrentSong(songs[songs.length - 1]);
+    }
+  };
+
   return (
     <div className="player">
       <div className="time-control">
@@ -45,14 +69,28 @@ function Player({ isPlaying, setIsPlaying, songInfo, setSongInfo, audioRef }) {
         <p>{formatTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon className="skip-left" icon={faAngleLeft} size="2x" />
+        <FontAwesomeIcon
+          onClick={() => {
+            skipHandler("left");
+          }}
+          className="skip-left"
+          icon={faAngleLeft}
+          size="2x"
+        />
         <FontAwesomeIcon
           onClick={playSongHandler}
           className="play"
           icon={isPlaying ? faPause : faPlay}
           size="2x"
         />
-        <FontAwesomeIcon className="skip-right" icon={faAngleRight} size="2x" />
+        <FontAwesomeIcon
+          onClick={() => {
+            skipHandler("right");
+          }}
+          className="skip-right"
+          icon={faAngleRight}
+          size="2x"
+        />
       </div>
     </div>
   );
