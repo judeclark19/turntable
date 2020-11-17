@@ -31,6 +31,7 @@
 
   &:hover {
     background-color: rgb(206, 204, 252);
+    transition: background 0.4s ease;
   }
 }
 
@@ -70,4 +71,10 @@
   //   color: black;
   border-radius: 20px;
   border: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .library {
+    width: 100%;
+  }
 }

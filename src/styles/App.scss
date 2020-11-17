@@ -21,3 +21,12 @@ h4 {
 @import "./player";
 @import "./songDisplay";
 @import "./library";
+
+.app {
+  // color: red;
+  transition: all 0.5s ease;
+}
+
+.library-active {
+  margin-left: 30%;
+}

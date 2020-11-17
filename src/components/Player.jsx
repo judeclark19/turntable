@@ -20,9 +20,15 @@ function Player({
   audioRef,
 }) {
   //UseEffect
-  useEffect(() => {
+  // useEffect(() => {
+
+  // }, [currentSong]);
+
+  //Handlers
+
+  const activeLibraryHandler = (nextPrev) => {
     const newSongs = songs.map((song) => {
-      if (song.id === currentSong.id) {
+      if (song.id === nextPrev.id) {
         return {
           ...song,
           active: true,
@@ -36,9 +42,8 @@ function Player({
     });
 
     setSongs(newSongs);
-  }, [currentSong]);
+  };
 
-  //Handlers
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -66,12 +71,15 @@ function Player({
 
     if (direction === "right") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     }
     if (direction === "left" && currentIndex > 0) {
       await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex - 1) % songs.length]);
     }
     if (direction === "left" && currentIndex === 0) {
       await setCurrentSong(songs[songs.length - 1]);
+      activeLibraryHandler(songs[songs.length - 1]);
     }
     if (isPlaying) {
       audioRef.current.play();
