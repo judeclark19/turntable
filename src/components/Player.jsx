@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { playAudio } from "../util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -73,6 +74,7 @@ function Player({
     if (direction === "left" && currentIndex === 0) {
       setCurrentSong(songs[songs.length - 1]);
     }
+    playAudio(isPlaying, audioRef);
   };
 
   return (
