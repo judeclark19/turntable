@@ -8,20 +8,16 @@
 }
 
 .time-control {
-  //   border: 1px dashed black;
+  border: 1px dashed black;
   width: 60%;
   display: flex;
   justify-content: space-between;
 
   input {
     width: 100%;
-    padding: 1rem 0rem;
-    -webkit-appearance: none;
-    background-color: transparent;
-    cursor: pointer;
   }
   p {
-    padding: 1rem;
+    // padding: 1rem;
   }
 }
 
@@ -32,8 +28,4 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-}
-
-input[type="range"]:focus {
-  outline: none;
 }
