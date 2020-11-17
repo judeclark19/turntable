@@ -82,17 +82,16 @@ function Player({
       <div className="time-control">
         <p>{formatTime(songInfo.currentTime)}</p>
 
-        {/* <div className="track"> */}
-        {/* <div className="animate-track"> */}
-        <input
-          type="range"
-          onChange={dragHandler}
-          min={0}
-          max={songInfo.duration ? songInfo.duration : 0}
-          value={songInfo.currentTime}
-        />
-        {/* </div> */}
-        {/* </div> */}
+        <div className="track">
+          <input
+            type="range"
+            onChange={dragHandler}
+            min={0}
+            max={songInfo.duration ? songInfo.duration : 0}
+            value={songInfo.currentTime}
+          />
+          <div className="animate-track"></div>
+        </div>
 
         <p>{songInfo.duration ? formatTime(songInfo.duration) : "0:00"}</p>
       </div>
